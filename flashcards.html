@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards Acides Aminés</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .flashcard {
+            width: 200px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        .flashcard .front, .flashcard .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            padding: 10px;
+        }
+        .flashcard .back {
+            background: #ee0808;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .flipped {
+            transform: rotateY(180deg);
+        }
+        .faux {
+    background: #e74c3c; /* Red */
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <script>
+        const flashcards = [
+            { question: "La glycine est le seul acide aminé achiral.", answer: "Vrai" },
+            { question: "La proline possède une fonction amine primaire.", answer: "Faux" },
+            { question: "La cystéine peut former des ponts disulfure.", answer: "Vrai" },
+            { question: "La sérine et la thréonine sont des acides aminés soufrés.", answer: "Faux" },
+            { question: "L’histidine est un acide aminé basique.", answer: "Vrai" },
+            { question: "La phénylalanine est un acide aminé polaire.", answer: "Faux" },
+            { question: "La lysine et l’arginine possèdent une charge positive à pH physiologique.", answer: "Vrai" },
+            { question: "L’acide glutamique est un acide aminé basique.", answer: "Faux" },
+            { question: "La méthionine est toujours le premier acide aminé traduit.", answer: "Vrai" },
+            { question: "La tyrosine est un acide aminé aromatique.", answer: "Vrai" },
+            { question: "La leucine est plus hydrophile que l’asparagine.", answer: "Faux" },
+            { question: "La valine est un acide aminé aromatique.", answer: "Faux" },
+            { question: "L’asparagine peut être impliquée dans la N-glycosylation.", answer: "Vrai" },
+            { question: "L’isoleucine et la leucine ont des chaînes latérales identiques.", answer: "Faux" },
+            { question: "Le tryptophane est un acide aminé essentiel.", answer: "Vrai" },
+            { question: "La phénylalanine peut être hydroxylée en tyrosine.", answer: "Vrai" },
+            { question: "La glutamine est l’amide de l’acide glutamique.", answer: "Vrai" },
+            { question: "Les acides aminés apolaires sont souvent en surface des protéines.", answer: "Faux" },
+            { question: "La thréonine possède deux carbones asymétriques.", answer: "Vrai" },
+            { question: "La sérine et la thréonine peuvent être phosphorylées.", answer: "Vrai" }
+        ];
+
+        flashcards.forEach((card, index) => {
+            const flashcard = document.createElement("div");
+            flashcard.classList.add("flashcard");
+            flashcard.innerHTML = `
+                <div class="front">${card.question}</div>
+                <div class="back">${card.answer}</div>
+            `;
+            flashcard.addEventListener("click", () => {
+                flashcard.classList.toggle("flipped");
+            });
+            document.body.appendChild(flashcard);
+        });
+        
+    </script>
+
+</body>
+</html>
